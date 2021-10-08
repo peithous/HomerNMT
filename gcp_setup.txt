@@ -1,0 +1,39 @@
+
+# PATH
+# After pip is installed, add in .bashrc
+export PATH=~/.local/bin:$PATH
+
+
+# CUDA
+which nvcc
+nvcc --version
+
+
+# GPU monitoring
+nvidia-smi --query-gpu=utilization.gpu  -u --format=csv
+nvidia-smi --query-gpu=utilization.memory  -u --format=csv
+
+
+# Tensorboard
+# Make tensorboard listen on a generic address (0.0.0.0)
+tensorboard --host 0.0.0.0 --logdir="run"
+
+# Access the machine by its public IP instead of GCP's URL based access pattern 
+http://35.230.69.194:6006/
+
+
+
+# OpenNMT
+# Vocab
+
+
+# Train
+onmt-main train_and_eval --model_type NMTSmall --auto_config --config data.yml --num_gpus 4
+
+# Infer
+onmt-main infer --auto_config --config data.yml --features_file src-test.txt 
+onmt-main infer --auto_config --config data.yml --features_file src-test.txt > HomerNMT-EmbPersGrc.txt
+
+
+# Score
+	* onmt-main score --config data.yml --features_file tgt-test.txt --predictions_file decoded_homer.txt

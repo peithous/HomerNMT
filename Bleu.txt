@@ -1,0 +1,21 @@
+cat HomerNMT-EmbPersGrc.txt | sacrebleu tgt-test.txt
+
+In addition to the score, it outputs a version string that records the exact BLEU parameters used. (The output string is compatible with the output of multi-bleu.pl)
+
+
+*no Emb
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.3.7 = 7.2 
+30.3/8.2/4.7/3.4 (BP = 0.897 ratio = 0.902 hyp_len = 18904 ref_len = 20962)
+
+*Emb: hmr grc
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.3.7 = 6.0 
+26.1/6.6/3.8/2.8 (BP = 0.910 ratio = 0.913 hyp_len = 19148 ref_len = 20962)
+
+*Emb: hmr bi
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.3.7 = 6.2 
+27.7/7.4/4.1/3.1 (BP = 0.865 ratio = 0.873 hyp_len = 18310 ref_len = 20962)
+
+*Emb: pers grc
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.3.7 = 6.4 
+28.5/7.8/4.6/3.5 (BP = 0.834 ratio = 0.846 hyp_len = 17744 ref_len = 20962)
+
